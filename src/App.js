@@ -270,6 +270,18 @@ function App() {
             ) : null}
           </div>
         </div>
+        {isLoading || (recipes && recipes.length > 0) ? (
+          <>
+            <label className='input-label'>
+              Recipes Per Page:
+              <select
+                value={recipesPerPage}
+                onChange={handleRecipesPerPagechange}
+                className='select'
+              ></select>
+            </label>
+          </>
+        ) : null}
         {user ? (
           <ReciapeForm
             exisitingRecipe={currentRecipe}
