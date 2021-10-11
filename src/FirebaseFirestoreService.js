@@ -7,7 +7,7 @@ const createDocument = (collection, document) => {
 }
 
 const readDocument = (collection, id) => {
-  return firestore.readDocument(collection).doc(id).get()
+  return firestore.collection(collection).doc(id).get()
 }
 
 const readDocuments = async (

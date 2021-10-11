@@ -240,6 +240,15 @@ function App() {
                         <div className='unpublished'>UNPUBLISHED</div>
                       ) : null}
                       <div className='recipe-name'>{recipe.name}</div>
+                      <div className='recipe-image-box'>
+                        {recipe.imageUrl ? (
+                          <img
+                            src={recipe.imageUrl}
+                            alt={recipe.imageUrl}
+                            className='recipe-image'
+                          />
+                        ) : null}
+                      </div>
                       <div className='recipe-field'>
                         Category : {lookupLabel(recipe.category)}
                       </div>
@@ -278,8 +287,21 @@ function App() {
                 value={recipesPerPage}
                 onChange={handleRecipesPerPagechange}
                 className='select'
-              ></select>
+              >
+                <option value='3'>3</option>
+                <option value='6'>6</option>
+                <option value='9'>9</option>
+              </select>
             </label>
+            <div className='pagination'>
+              <button
+                type='button'
+                className='primary-button'
+                onClick={handleLoadMoreRecipesClick}
+              >
+                LOAD MORE RECIPES
+              </button>
+            </div>
           </>
         ) : null}
         {user ? (
